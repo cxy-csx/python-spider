@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>爬虫练习</title>
+    <style>
+        * {margin: 0;padding: 0;}
+        a{text-decoration: none; color: #000}
+        body{
+            background:linear-gradient(0deg, #ff9f42 0%, #ed923d 35%, #6d3816 75%, #2e0b04 100%);
+            width: 100%;
+            height: 100%;
+        }
+        #bottom{position: relative; width: 1200px;margin: 0 auto;}
+        .box {width: 200px;height: 320px;margin: 0 15px 15px 0;background-color: #e8e8e8;}
+        .box img{
+            width: 100%;
+            height: 280px;
+
+        }
+        .box h4{
+            text-align: center;
+        }
+        .box p {color: orangered; white-space: nowrap; overflow: hidden;text-overflow: ellipsis;}
+    </style>
+</head>
+<body>
+<div id="bottom">
+
+    
+        <div class="box">
+            <a href="1984.html">
+                <img src="http://apis.juhe.cn/goodbook/img/4dad281446fea4764dd078d7d6998c7a.jpg" alt="">
+                <h4>1984</h4>
+            </a>
+        </div>
+    
+        <div class="box">
+            <a href="王子与贫儿.html">
+                <img src="http://apis.juhe.cn/goodbook/img/d9b6fb6c7b51a4959754de6a739dbec0.jpg" alt="">
+                <h4>王子与贫儿</h4>
+            </a>
+        </div>
+    
+        <div class="box">
+            <a href="长袜子皮皮.html">
+                <img src="http://apis.juhe.cn/goodbook/img/53f6916b8b9b9cd0ab84e21f67e5dea3.jpg" alt="">
+                <h4>长袜子皮皮</h4>
+            </a>
+        </div>
+    
+        <div class="box">
+            <a href="月亮和六便士.html">
+                <img src="http://apis.juhe.cn/goodbook/img/724e8fb36260f71dc8c245edbcebb1c0.jpg" alt="">
+                <h4>月亮和六便士</h4>
+            </a>
+        </div>
+    
+        <div class="box">
+            <a href="霍乱时期的爱情.html">
+                <img src="http://apis.juhe.cn/goodbook/img/d539d14fe2e9450bb58164d4866819eb.jpg" alt="">
+                <h4>霍乱时期的爱情</h4>
+            </a>
+        </div>
+    
+        <div class="box">
+            <a href="京华烟云.html">
+                <img src="http://apis.juhe.cn/goodbook/img/8de57bb8f82c0f31035d25e48644f3dd.jpg" alt="">
+                <h4>京华烟云</h4>
+            </a>
+        </div>
+    
+        <div class="box">
+            <a href="不能承受的生命之轻.html">
+                <img src="http://apis.juhe.cn/goodbook/img/cacb7360b7fcfe2dfca2167918bc1833.jpg" alt="">
+                <h4>不能承受的生命之轻</h4>
+            </a>
+        </div>
+    
+        <div class="box">
+            <a href="人生.html">
+                <img src="http://apis.juhe.cn/goodbook/img/df9334eb2d4815be9ab813aac90d2cbe.jpg" alt="">
+                <h4>人生</h4>
+            </a>
+        </div>
+    
+        <div class="box">
+            <a href="牧羊少年奇幻之旅.html">
+                <img src="http://apis.juhe.cn/goodbook/img/a066c23cec5c001bca8d60aee6786a09.jpg" alt="">
+                <h4>牧羊少年奇幻之旅</h4>
+            </a>
+        </div>
+    
+        <div class="box">
+            <a href="丧钟为谁而鸣.html">
+                <img src="http://apis.juhe.cn/goodbook/img/a5b6b8cb89f2f8f43fb74d3c4c043350.jpg" alt="">
+                <h4>丧钟为谁而鸣</h4>
+            </a>
+        </div>
+    
+        <div class="box">
+            <a href="家.html">
+                <img src="http://apis.juhe.cn/goodbook/img/6509a525ea8e35b52f7ced67b05bb064.jpg" alt="">
+                <h4>家</h4>
+            </a>
+        </div>
+    
+        <div class="box">
+            <a href="浮士德.html">
+                <img src="http://apis.juhe.cn/goodbook/img/ddfc49fb17ea957c0727e0317c3f34fa.jpg" alt="">
+                <h4>浮士德</h4>
+            </a>
+        </div>
+    
+        <div class="box">
+            <a href="荆棘鸟.html">
+                <img src="http://apis.juhe.cn/goodbook/img/211c18833d442ad6a197c7bc4abbeec5.jpg" alt="">
+                <h4>荆棘鸟</h4>
+            </a>
+        </div>
+    
+        <div class="box">
+            <a href="飘.html">
+                <img src="http://apis.juhe.cn/goodbook/img/f33677ccf19129450db2d0e38edd7434.jpg" alt="">
+                <h4>飘</h4>
+            </a>
+        </div>
+    
+        <div class="box">
+            <a href="菜根谭.html">
+                <img src="http://apis.juhe.cn/goodbook/img/2a03274acf867dd01bae0c2f0560b3f3.jpg" alt="">
+                <h4>菜根谭</h4>
+            </a>
+        </div>
+    
+
+
+</div>
+
+<script>
+    window.onload = function (ev) {
+        var bottom = document.getElementById('bottom');
+        j_flex(5, bottom);
+    };
+
+    /**
+     *  九宫格的布局
+     * @param {number}allCols
+     * @param {object}parentNode
+     */
+    function j_flex(allCols, parentNode) {
+        // 1. 定义变量
+        var boxW = 200, boxH = 320, marginXY = 25;
+
+        // 2. 遍历
+        for (var i = 0; i < parentNode.children.length; i++) {
+            // 2.1 求出当前盒子的行号和列号
+            var row = Math.floor(i / allCols);
+            var col = Math.floor(i % allCols);
+            // console.log('当前的盒子在第' +  row + '行, 第' + col + '列');
+
+            // 2.2 盒子定位
+            var currentBox = parentNode.children[i];
+            currentBox.style.position = 'absolute';
+            currentBox.style.left = col * (boxW + marginXY) + 'px';
+            currentBox.style.top = row * (boxH + marginXY) + 'px';
+        }
+    }
+</script>
+</body>
+</html>

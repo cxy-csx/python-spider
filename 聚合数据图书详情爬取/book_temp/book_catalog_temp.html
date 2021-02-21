@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>爬虫练习</title>
+    <style>
+        * {margin: 0;padding: 0;}
+        a{text-decoration: none; color: #000}
+        body{
+            background:linear-gradient(0deg, #ff9f42 0%, #ed923d 35%, #6d3816 75%, #2e0b04 100%);
+            width: 100%;
+            height: 100%;
+        }
+        #bottom{position: relative; width: 1200px;margin: 0 auto;}
+        .box {width: 200px;height: 320px;margin: 0 15px 15px 0;background-color: #e8e8e8;}
+        .box img{
+            width: 100%;
+            height: 280px;
+
+        }
+        .box h4{
+            text-align: center;
+        }
+        .box p {color: orangered; white-space: nowrap; overflow: hidden;text-overflow: ellipsis;}
+    </style>
+</head>
+<body>
+<div id="bottom">
+
+    {{content_list}}
+
+
+</div>
+
+<script>
+    window.onload = function (ev) {
+        var bottom = document.getElementById('bottom');
+        j_flex(5, bottom);
+    };
+
+    /**
+     *  九宫格的布局
+     * @param {number}allCols
+     * @param {object}parentNode
+     */
+    function j_flex(allCols, parentNode) {
+        // 1. 定义变量
+        var boxW = 200, boxH = 320, marginXY = 25;
+
+        // 2. 遍历
+        for (var i = 0; i < parentNode.children.length; i++) {
+            // 2.1 求出当前盒子的行号和列号
+            var row = Math.floor(i / allCols);
+            var col = Math.floor(i % allCols);
+            // console.log('当前的盒子在第' +  row + '行, 第' + col + '列');
+
+            // 2.2 盒子定位
+            var currentBox = parentNode.children[i];
+            currentBox.style.position = 'absolute';
+            currentBox.style.left = col * (boxW + marginXY) + 'px';
+            currentBox.style.top = row * (boxH + marginXY) + 'px';
+        }
+    }
+</script>
+</body>
+</html>

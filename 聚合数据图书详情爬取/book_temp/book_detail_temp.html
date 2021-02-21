@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>爬虫练习</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(0deg, #ff9f42 0%, #ed923d 35%, #6d3816 75%, #2e0b04 100%);
+            -webkit-background-size: cover;
+            background-size: cover;
+            overflow: hidden;
+        }
+
+        .container {
+            width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: left;
+            padding: 10px 0;
+            font-size: 40px;
+            color: #fff;
+        }
+
+        header img{
+            vertical-align: middle;
+        }
+
+        .left {
+            width: 300px;
+            float: left;
+        }
+
+        .right {
+            width: 900px;
+            float: left;
+            box-sizing: border-box;
+            padding: 0 50px;
+            color: #fff;
+        }
+
+        h4{
+            margin: 10px 0;
+            font-weight: bold;
+        }
+
+        p{
+            margin: 10px 0;
+            text-indent: 2rem;
+        }
+
+        .intro{
+            overflow: auto;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+<section class="container">
+    <header>
+        <img src="../image/xl.png" alt="" width="150">
+        {{title}}
+    </header>
+    <hr style="margin-bottom: 50px;"/>
+    <main>
+        <div class="left">
+            <img src="{{img}}" alt="" width="300">
+        </div>
+        <div class="right">
+            <h4>简介：{{sub1}}</h4>
+            <h4>类型：{{catalog}} </h4>
+            <h4>标签：{{tags}} </h4>
+            <h4>出版时间: {{bytime}}</h4>
+            <h4>内容概述:</h4>
+            <div class="intro">
+                {{sub2}}
+            </div>
+
+        </div>
+    </main>
+</section>
+</body>
+</html>
